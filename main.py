@@ -4,8 +4,11 @@ import dotenv
 import requests
 import json
 import random
+from dotenv import load_dotenv
+load_dotenv('test.env')
 
-my_secret = os.environ['train']
+
+my_secret = os.getenv('TRAIN')
 
 bot = hikari.GatewayBot(token=my_secret)
 
@@ -21,6 +24,5 @@ async def ping(event: hikari.GuildMessageCreateEvent) -> None:
     if event.content.startswith("choo choo"):
           await event.message.respond(":steam_locomotive::railway_car::railway_car::railway_car::transgender_flag::transgender_flag::transgender_flag::railway_car::railway_car::railway_car:")
   
-
-
+#print(os.environ)
 bot.run()
